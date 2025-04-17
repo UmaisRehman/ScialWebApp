@@ -4,7 +4,7 @@ import Layout from './Layout';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Home from './Pages/Home';
-
+import '../src/index.css'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +30,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <div>
     <RouterProvider router={router} />
- 
   </div>
 );

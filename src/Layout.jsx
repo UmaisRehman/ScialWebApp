@@ -1,15 +1,23 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Login from './Pages/Login'
+import React from "react";
+import Navbar from "./Components/Navbar";
 
-const Layout = () => {
+import { Outlet, useLocation } from "react-router-dom";
+
+const MainLayout = () => {
+  const location = useLocation();
+
+  const hideLayoutPaths = ["/login", "/register"];
+  const shouldHideLayout = hideLayoutPaths.includes(location.pathname);
+
   return (
     <>
-
-    
-    <Outlet/>
+      {!shouldHideLayout && <Navbar />}
+      <div style={{ display: "flex" }}>
+        
+        <Outlet />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default MainLayout;

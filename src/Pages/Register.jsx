@@ -1,90 +1,89 @@
-// RegisterPage.jsx
-import React, { useState } from "react";
-import { TextField, Button, Box, Typography, Container } from "@mui/material";
+import React from "react";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import picLogin from "../assets/picLogin.png";
+import bgPic from "../assets/pic2.jpg";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleRegister = () => {
-    // Handle registration logic here
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    console.log("Registering with", name, email, password);
-  };
-
   return (
-    <Container component="main" maxWidth="xs">
+    <Box
+      sx={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+      }}
+    >
+      {/* Left Side - Image */}
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginTop: 8,
+          width: "50%",
+          height: "100vh",
+          overflow: "hidden",
         }}
       >
-        <Typography component="h1" variant="h5">
-          Register
+        <Box
+          component="img"
+          src={picLogin}
+          alt="Register Visual"
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+      </Box>
+
+      {/* Right Side - Register Card with background image and transparent form */}
+      <Box
+        sx={{
+          width: "50%",
+          height: "100vh",
+          backgroundImage: `url(${bgPic})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          px: 4,
+        }}
+      >
+        <Typography variant="h4" fontWeight="bold" mb={4} color="white">
+          Join Us Now
         </Typography>
-        <Box sx={{ mt: 1 }}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Confirm Password"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            sx={{ mt: 3, mb: 2 }}
-            onClick={handleRegister}
-          >
-            Register
-          </Button>
-          <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 2 }}>
-            Already have an account? <a href="/login">Log In</a>
+
+        <Box
+          sx={{
+            width: "100%",
+            maxWidth: 400,
+            p: 4,
+            borderRadius: 3,
+            backgroundColor: "rgba(255, 255, 255, 0.15)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+            color: "#fff",
+          }}
+        >
+          <Stack spacing={2}>
+            <TextField label="Full Name" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
+            <TextField label="Email Address" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
+            <TextField label="Password" type="password" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
+            <TextField label="Confirm Password" type="password" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
+
+            <Button variant="contained" color="primary" fullWidth>
+              Register
+            </Button>
+          </Stack>
+
+          <Typography mt={3} textAlign="center" color="white">
+            Already have an account?{" "}
+            <Link to="/login" underline="hover" style={{ color: '#bbdefb' }}>
+              Log In
+            </Link>
           </Typography>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
