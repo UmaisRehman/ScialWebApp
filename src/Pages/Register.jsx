@@ -3,7 +3,8 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import picLogin from "../assets/picLogin.png";
 import bgPic from "../assets/pic2.jpg";
 import { Link } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+const notify = () => toast("Registered in successfully!");
 const Register = () => {
   return (
     <Box
@@ -34,6 +35,7 @@ const Register = () => {
       </Box>
 
       {/* Right Side - Register Card with background image and transparent form */}
+      <ToastContainer/>
       <Box
         sx={{
           width: "50%",
@@ -70,7 +72,9 @@ const Register = () => {
             <TextField label="Password" type="password" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
             <TextField label="Confirm Password" type="password" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
 
-            <Button variant="contained" color="primary" fullWidth>
+            <Button variant="contained" color="primary" fullWidth
+            onClick={notify}
+            >
               Register
             </Button>
           </Stack>

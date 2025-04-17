@@ -7,16 +7,16 @@ const Navbar = () => {
       <Box>
         <AppBar
           position="static"
-          elevation={0} // removes shadow
+          elevation={0}
           sx={{
             width: '100%',
             borderBottomLeftRadius: "16px",
             borderBottomRightRadius: "16px",
             borderBottom: '1px solid rgba(122, 63, 63, 0.18)',
-            backgroundColor: "rgba(255, 255, 255, 0.3)", // translucent
-            backdropFilter: "blur(10px)", // blur effect
-            WebkitBackdropFilter: "blur(10px)", // for Safari
-            color: "black", // to make text visible
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)", 
+            color: "black",
           }}
         >
           <Toolbar>

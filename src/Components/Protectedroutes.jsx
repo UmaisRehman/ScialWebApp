@@ -3,26 +3,26 @@ import { useNavigate } from "react-router-dom";
 
 const Protectedroutes = ({ component }) => {
     const navigate = useNavigate();
-    const [user, setUser] = useState(null); // Use null as initial state instead of false
+    const [user, setUser] = useState(null); 
     
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user); // Set user state if logged in
+                setUser(user); 
             } else {
-                setUser(null); // Set user to null if logged out
-                navigate('/login'); // Redirect to login if no user
+                setUser(null); 
+                navigate('/login'); 
             }
         });
         
-        return () => unsubscribe(); // Clean up listener when component unmounts
+        return () => unsubscribe(); 
     }, [navigate]);
 
     if (user === null) {
-        return <h1>Loading...</h1>; // Show loading state until user is detected
+        return <h1>Loading...</h1>; 
     }
 
-    return component; // Render the protected component if user is logged in
+    return component; 
 };
 
 export default Protectedroutes;
