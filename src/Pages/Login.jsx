@@ -2,11 +2,21 @@ import React from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import picLogin from "../assets/picLogin.png";
 import bgPic from "../assets/pic2.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 const notify = () => toast("Logged in successfully!");
 
 const Login = () => {
+      const navigate = useNavigate();
+
+
+
+
+      const handleLogin = (e) => {
+      navigate("/")
+      }
+
+
   return (
     <Box
       sx={{
@@ -71,8 +81,10 @@ const Login = () => {
             <TextField label="Email" variant="outlined" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
             <TextField label="Password" variant="outlined" type="password" fullWidth InputLabelProps={{ style: { color: '#fff' } }} InputProps={{ style: { color: '#fff' } }} />
             <Button variant="contained" fullWidth
-            onClick={notify}
+            onClick={()=>{notify(),handleLogin()}}
+            
             >
+            
               Login
             </Button>
           </Stack>

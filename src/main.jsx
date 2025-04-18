@@ -5,6 +5,9 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Home from './Pages/Home';
 import '../src/index.css'
+import Blog from './Pages/Blog';
+import Products from './Pages/Products';
+import Pricong from './Pages/Pricong';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,20 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register />
       },
+      {
+        path: "products",
+        element: <Products/>
+      },
+      
+      {
+        path: "blog",
+        element: <Blog/>
+      },
+      
+      {
+        path: "pricing",
+        element: <Pricong/>
+      }
     ]
   }
 ]);
