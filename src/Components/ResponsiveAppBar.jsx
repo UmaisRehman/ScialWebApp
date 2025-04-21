@@ -26,7 +26,7 @@ function ResponsiveAppBar() {
     navigate('/')
   }
   const handleproduct=()=>{
-    navigate('/products')
+    navigate('/login')
   }
 
   const handlepricing=()=>{
